@@ -95,7 +95,8 @@ module mux4_to_1_dataflow (
                (S1 & S0 & D);
 endmodule
 
-OUTPUT:
+OUTPUT:![Screenshot 2024-09-19 142717](https://github.com/user-attachments/assets/dd5789e4-feee-4029-aa34-50f9f0a9aae7)
+
 
 4:1 MUX Behavioral Implementation
 
