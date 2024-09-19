@@ -86,36 +86,33 @@ module mux4_to_1_dataflow (
     input wire C,
     input wire D,
     input wire S0,
-    input wire S1,
+    input wire S1,    
     output wire Y
 );
-    assign Y = (~S1 & ~S0 & A) |
+    assign Y = (~S1 & ~S0 & A|
                (~S1 & S0 & B) |
                (S1 & ~S0 & C) |
                (S1 & S0 & D);
 endmodule
 
+OUTPUT:
+
 4:1 MUX Behavioral Implementation
 
-// mux4_to_1_behavioral.v
-module mux4_to_1_behavioral (
-    input wire A,
-    input wire B,
-    input wire C,
-    input wire D,
-    input wire S0,
-    input wire S1,
-    output reg Y
+module mux4_1_behavioral (
+    input wire a, b, c, d,
+    input wire sel0, sel1,
+    output wire y
 );
+
+    // Behavioral implementation using conditional statements
     always @(*) begin
-        case ({S1, S0})
-            2'b00: Y = A;
-            2'b01: Y = B;
-            2'b10: Y = C;
-            2'b11: Y = D;
-            default: Y = 1'bx; // Undefined
-        endcase
+        if (sel1 == 0 && sel0 == 0) y = a;
+        else if (sel1 == 0 && sel0 == 1) y = b;
+        else if (sel1 == 1 && sel0 == 0) y = c;
+        else y = d;
     end
+
 endmodule
 
 4:1 MUX Structural Implementation
