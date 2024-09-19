@@ -63,32 +63,19 @@ Verilog Code
 
 4:1 MUX Gate-Level Implementation
 
-// mux4_to_1_gate.v
-module mux4_to_1_gate (
-    input wire A,
-    input wire B,
-    input wire C,
-    input wire D,
-    input wire S0,
-    input wire S1,
-    output wire Y
+module mux_4to1 (
+    input wire [1:0] sel,    // 2-bit selection input
+    input wire a, b, c, d,   // 4 input data lines
+    output wire out          // output
 );
-    wire not_S0, not_S1;
-    wire A_and, B_and, C_and, D_and;
 
-    // Inverters for select lines
-    not (not_S0, S0);
-    not (not_S1, S1);
-
-    // AND gates for each input with select lines
-    and (A_and, A, not_S1, not_S0);
-    and (B_and, B, not_S1, S0);
-    and (C_and, C, S1, not_S0);
-    and (D_and, D, S1, S0);
-
-    // OR gate to combine all AND gate outputs
-    or (Y, A_and, B_and, C_and, D_and);
+    assign out = (sel == 2'b00) ? a :
+                 (sel == 2'b01) ? b :
+                 (sel == 2'b10) ? c :
+                                  d;
 endmodule
+ output:![image](https://github.com/user-attachments/assets/5c33d1cc-e1cc-434d-a8c4-57bd69f69591)
+
 
 4:1 MUX Data Flow Implementation
 
