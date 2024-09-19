@@ -70,7 +70,7 @@ module mux4_to_1_gate (
     input wire C,
     input wire D,
     input wire S0,
-    input wire S1,
+    input wire S3,
     output wire Y
 );
     wire not_S0, not_S1;
