@@ -38,7 +38,7 @@ Vivado will open the Simulations Window, and the waveform window will show the s
 The simulation waveform window will display the signals (S1, S0, A, B, C, D, Y_gate, Y_dataflow, Y_behavioral, Y_structural).
 Use the time markers to verify the correctness of the 4:1 MUX output for each set of inputs.
 You can zoom in/out or scroll through the simulation time using the waveform viewer controls.
-7. Adjust Simulation Time
+7. Adjust Simulation Tim
 To run a longer simulation or adjust timing, go to the Simulation Settings by clicking "Simulation" → "Simulation Settings".
 Under "Simulation", modify the Run Time (e.g., set to 1000ns).
 8. Generate Simulation Report
